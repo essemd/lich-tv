@@ -7,8 +7,5 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "node-media-server": "^2.3.8"
-  }
+  "license": "ISC"
 }
