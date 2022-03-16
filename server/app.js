@@ -12,6 +12,7 @@ app.use(bodyParser.json({extended: true}));
 passport.use(new LocalStrategy(
     function(username, password, done) {
         console.log("We do nothing as a strategy!");
+        return done(null, false);
     }));
 
 app.get('/login',
