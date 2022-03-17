@@ -14,8 +14,17 @@ app.use(bodyParser.json({extended: true}));
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
-        console.log("We verify the users credentials in this function!");
-        return done(null, false);
+        User.findOne({username: username}, function(err, user) {
+            if (err) console.log(err);
+            if (user) {
+                if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect password.' });
+                } else {
+                return done(null, user);
+                }
+            }
+            return done(null, false, { message: 'Incorrect username or password.' });
+        });
     }));
 
 app.get('/login',
