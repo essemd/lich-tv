@@ -4,7 +4,8 @@ require('dotenv').config({ path: 'config.env' });
 const bodyParser = require('body-parser'); // need this if we're going to be POSTing
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
-const dbo = require('./db/conn');
+const mongoose = require('mongoose');
+const User = require('./db/model');
 
 const port = process.env.PORT | 5000;
 
@@ -28,8 +29,8 @@ app.post('/login/password', passport.authenticate('local'),
 });
 
 app.listen(port, () => {
-    dbo.connectToServer(function (err) {
-        if (err) console.log(err);
-    });
+    mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+    mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
     console.log(`Server up and running on port ${port}...`);
 }); 
