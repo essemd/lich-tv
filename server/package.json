@@ -17,6 +17,7 @@
     "mongoose": "^6.2.7",
     "node-media-server": "^2.3.8",
     "passport": "^0.5.2",
-    "passport-local": "^1.0.0"
+    "passport-local": "^1.0.0",
+    "shortid": "^2.2.16"
   }
 }

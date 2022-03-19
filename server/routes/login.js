@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
 router.post('/', passport.authenticate('local', {session: true}),
     function(req, res) {
         console.log(req.session);
-        res.send('If you can read this you are authenticated!');
+        res.sendFile(path.resolve(__dirname, '../views/genkey.html'));
 });
 
 

@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const User = require('./db/model');
 const login = require('./routes/login');
 const register = require('./routes/register');
+const genkey = require('./routes/genkey');
 
 const port = process.env.PORT | 5000;
 
@@ -18,6 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({extended: true}));
 app.use('/login', login);
 app.use('/register', register);
+app.use('/genkey', genkey);
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
