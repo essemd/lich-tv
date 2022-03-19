@@ -1,4 +1,5 @@
 const express = require('express');
+const session = require('express-session');
 const app = express();
 require('dotenv').config({ path: 'config.env' });
 const bodyParser = require('body-parser'); // need this if we're going to be POSTing
@@ -11,6 +12,8 @@ const register = require('./routes/register');
 
 const port = process.env.PORT | 5000;
 
+app.use(session({ secret: 'jumbo jets', cookie: { maxAge: 60000 }}));
+app.use(passport.session());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({extended: true}));
 app.use('/login', login);

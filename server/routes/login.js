@@ -8,8 +8,9 @@ router.get('/', function(req, res) {
     res.sendFile(path.resolve(__dirname, '../views/login.html'));
 });
 
-router.post('/', passport.authenticate('local', {session: false}), // dont need a session atm
+router.post('/', passport.authenticate('local', {session: true}),
     function(req, res) {
+        console.log(req.session);
         res.send('If you can read this you are authenticated!');
 });
 

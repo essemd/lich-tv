@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 
 var userSchema = new Schema({
     username: String,
-    password: String
+    password: String,
+    streamkey: String
   });
   
   // hash the password
