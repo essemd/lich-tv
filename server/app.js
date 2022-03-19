@@ -6,12 +6,15 @@ const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const mongoose = require('mongoose');
 const User = require('./db/model');
+const login = require('./routes/login');
+const register = require('./routes/register');
 
 const port = process.env.PORT | 5000;
 
-
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json({extended: true}));
+app.use('/login', login);
+app.use('/register', register);
 
 passport.use(new LocalStrategy(
     function(username, password, done) {
@@ -23,37 +26,12 @@ passport.use(new LocalStrategy(
         });
     }));
 
-/* this pair of functions determines what data of the user object needs to be stored (at req.session.passport.user) 
-in the session, and how to retreive said data */
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
       
 passport.deserializeUser(function(user, done) {
     done(null, user);
-});
-
-
-app.get('/register', function(req, res) {
-    res.sendFile('views/register.html', {root: __dirname});
-});
-
-app.get('/login', function(req, res) {
-    res.sendFile('views/login.html', {root: __dirname});
-});
-
-app.post('/register/', function(req, res) {
-    const newUser = new User({ username: req.body.username,});
-    newUser.password = newUser.generateHash(req.body.password);
-    newUser.save(function (err) {
-      if (err) return handleError(err);
-      res.end();
-    });
-});
-
-app.post('/login/', passport.authenticate('local', {session: false}), // dont need a session atm
-    function(req, res) {
-        res.send('If you can read this you are authenticated!');
 });
 
 app.listen(port, () => {
