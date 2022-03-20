@@ -9,15 +9,16 @@ router.post('/', function(req, res) {
     User.findOneAndUpdate(
         { username: req.session.passport.user.username }, 
         { stream_key: shortid.generate() },
-        { new: true }, // the user callback variable 
+        { new: true }, 
         (err, user) => {
             if (err) console.log(err);
             if (user) {
                 res.json({
                     stream_key: user.stream_key
                 });
+            } else {
+                res.sendFile(path.resolve(__dirname, '../views/login.html')); // session expired
             }
-            res.sendFile(path.resolve(__dirname, '../views/login.html')); // session expired
         });
 });
 
