@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const bcrypt = require('bcrypt'); // one of the more secure hashing algorithms currently
 
 const Schema = mongoose.Schema;
