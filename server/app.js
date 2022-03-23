@@ -19,6 +19,7 @@ const port = process.env.PORT | 5000;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use('/thumbnails', express.static('thumbnails'));
 app.use(session({ secret: 'jumbo jets', cookie: { maxAge: 60000 }}));
 app.use(passport.session());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -51,6 +52,4 @@ app.listen(port, () => {
     mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
     console.log(`Server up and running on port ${port}...`);
-
-    const generateStreamThumbnail = require('./helpers/generate-stream-thumbnail');
 });
