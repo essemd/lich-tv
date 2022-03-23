@@ -51,4 +51,6 @@ app.listen(port, () => {
     mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
     console.log(`Server up and running on port ${port}...`);
+
+    const generateStreamThumbnail = require('./helpers/generate-stream-thumbnail');
 });

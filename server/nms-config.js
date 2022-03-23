@@ -8,7 +8,18 @@ const config = {
     },
     http: {
         port: 8000,
+        mediaroot: './media',
         allow_origin: '*'
+    },
+    trans: {
+        ffmpeg: '/usr/bin/ffmpeg',
+        tasks: [
+            {
+                app: 'live',
+                hls: true,
+                hlsFlags: '[hls_time=2:hls_list_size=3:hls_flags=delete_segments]'
+            }
+        ]
     }
 };
 
