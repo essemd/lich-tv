@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const session = require('express-session');
 require('dotenv').config({ path: 'config.env' });
 const bodyParser = require('body-parser'); // need this if we're going to be POSTing
@@ -19,6 +20,7 @@ const port = process.env.PORT | 5000;
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
+app.use(cors());
 app.use('/thumbnails', express.static('thumbnails'));
 app.use(session({ secret: 'jumbo jets', cookie: { maxAge: 60000 }}));
 app.use(passport.session());
