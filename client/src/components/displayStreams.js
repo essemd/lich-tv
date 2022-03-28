@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Stream from './stream';
+//import Container from 'react-bootstrap/Container';
+//import Row from 'react-bootstrap/Row';
+//import Col from 'react-bootstrap/Col';
 
 export default function DisplayStreams() {
     const [streamIds, setStreamIds] = useState();
@@ -30,8 +33,6 @@ export default function DisplayStreams() {
         });
     }
 
-    
-
     return (
         /*<div>
             {streamIds && streams()} 
@@ -41,6 +42,13 @@ export default function DisplayStreams() {
                 {streamIds && streams()} 
             </div>
         </div>
+        /*<Container>
+            <Row>
+                <Col>Herro</Col>
+                <Col>{streamIds && streams()}</Col>
+                <Col>Herro</Col>
+            </Row>
+        </Container>*/
     );
     
 }
