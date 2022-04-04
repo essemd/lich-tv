@@ -16,6 +16,9 @@ router.get('/', function(req, res) {
                 //res.render('sandbox');
                 res.json({ids: ['2mp9M3aOpaaa']});
             }
+        })
+        .catch((err) => {
+            res.send(err);
         });
 });
 

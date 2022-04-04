@@ -9,7 +9,7 @@ export default function DisplayStreams() {
 
     useEffect(() => {
         async function fetchStreamIds() {
-            const response = await fetch('http://127.0.0.1:5000/'); 
+            const response = await fetch('http://localhost:5000/'); 
 
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
