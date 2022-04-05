@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Stream from './stream';
+import StreamLink from './streamLink';
 //import Container from 'react-bootstrap/Container';
 //import Row from 'react-bootstrap/Row';
 //import Col from 'react-bootstrap/Col';
@@ -28,7 +28,7 @@ export default function DisplayStreams() {
     function streams() {
         return streamIds.map((streamId) => {
             return (
-                <Stream streamId={streamId} key={streamId} />
+                <StreamLink streamId={streamId} key={streamId} /> /* unique key is needed for rendering of generated comps to work */
             );
         });
     }

@@ -25,6 +25,7 @@ export default function Login(props) {
     })
   }
 
+    /* why did the passport session not work when this was a form? */
     return (
     <div>
       <h1>Login</h1>
