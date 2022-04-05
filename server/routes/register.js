@@ -4,10 +4,6 @@ const path = require('path');
 const User = require('../db/model');
 
 
-router.get('/', function(req, res) {
-    res.sendFile(path.resolve(__dirname, '../views/register.html'));
-});
-
 router.post('/', function(req, res) {
     const newUser = new User({ username: req.body.username,});
     newUser.password = newUser.generateHash(req.body.password);

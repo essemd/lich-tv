@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React from 'react';
 import { Route, Routes } from "react-router-dom";
 
 import DisplayStreams from './components/displayStreams'
@@ -6,12 +6,10 @@ import Navbar from "./components/navbar";
 import Login from "./components/login";
 import Signup from "./components/signup";
 import GenKey from "./components/genKey";
+import StreamView from "./components/streamView";
 
-//import { myContext } from './components/context';
 
 export default function App() {
-    //const ctx = useContext(myContext);
-
     return (
         <div>
             <Navbar />
@@ -20,6 +18,7 @@ export default function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/genkey" element={<GenKey />} />
+                <Route path="/stream/:streamId" element={<StreamView />} />
             </Routes>
         </div>
     );

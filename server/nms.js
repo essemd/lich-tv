@@ -8,14 +8,15 @@ const generateStreamThumbnail = require('./helpers/generate-stream-thumbnail');
 
 
 let nms = new NodeMediaServer(config);
-let task = null; // i dont think this is the idiomatic way to declare globals in javascript lel
+let task = null; // i dont think this is the idiomatic way to declare uninitialized globals in javascript lel
 
 nms.on('prePublish', (id, StreamPath, args) => {
     console.log('[NodeEvent on prePublish]', `id=${id} StreamPath=${StreamPath} args=${JSON.stringify(args)}`);
-    let streamKey = StreamPath.substring(6);
+    let streamKey = StreamPath.substring(6); // assuming StreamPath format is consistent
+
     User.findOne(
     {
-        stream_key: streamKey // assuming StreamPath format is consistent
+        stream_key: streamKey     
     }, 
     function (err, user) {
         if (err) console.log(err);

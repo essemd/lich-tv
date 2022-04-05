@@ -7,8 +7,6 @@ const User = require('../db/model');
 
 
 router.get('/', function(req, res) {
-    console.log(req.user);
-
     if (req.user) {
         User.findOneAndUpdate(
             { username: req.user.username }, 
@@ -22,11 +20,13 @@ router.get('/', function(req, res) {
                         stream_key: user.stream_key
                     });
                 } else {
-                    res.send('couldnt find user')
+                    res.send('couldnt find user in db');
                 }
             }
         );
-    }
+    } 
+
+    res.send('req.user is undefined');
 });
 
 
