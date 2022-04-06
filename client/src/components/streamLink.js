@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios';
 
 export default function StreamLink(props) {
     const [imgSrc, setImg] = useState();
@@ -9,14 +8,20 @@ export default function StreamLink(props) {
     const pathname = 'stream/' + props.streamId;
 
     const fetchImage = async () => {
+        const prevImgSrc = imgSrc;
+
         const res = await fetch(imgUrl);
         const imageBlob = await res.blob();
-        const imageObjectURL = URL.createObjectURL(imageBlob); // object URL should be freed explicitly
+        const imageObjectURL = URL.createObjectURL(imageBlob); 
 
-        setImg(imageObjectURL);
+        if (imageObjectURL != prevImgSrc) {
+            URL.revokeObjectURL(prevImgSrc); // prevent memory leak
+            setImg(imageObjectURL);
+        }
     };
 
     useEffect(() => {
+        fetchImage();
         const interval = setInterval(fetchImage, 5001);
         return () => clearInterval(interval);
     }, []);
