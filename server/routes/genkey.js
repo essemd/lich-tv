@@ -24,9 +24,9 @@ router.get('/', function(req, res) {
                 }
             }
         );
-    } 
-
-    res.send('req.user is undefined');
+    } else {
+        res.send('req.user is undefined');
+    }
 });
 
 
