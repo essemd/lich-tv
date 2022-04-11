@@ -7,6 +7,7 @@ import axios from 'axios';
 export default function Login(props) {
     const [username, setUsername] = useState(); 
     const [password, setPassword] = useState(); 
+    const [failed, setFailed] = useState(false);
 
     //const ctx = useContext(myContext);
 
@@ -21,7 +22,8 @@ export default function Login(props) {
        window.location.href = "/genkey"
      }
     }, () => {
-      console.log("Failure");
+        console.log("Failure");
+        setFailed(true);
     })
   }
 
@@ -37,6 +39,7 @@ export default function Login(props) {
           <label className="mr-2" htmlFor="password">Password</label>
           <input className="mb-3 form-control" type="text" onChange={e => setPassword(e.target.value)} />
           <button className="mt-3 btn btn-primary" onClick={login}>Login</button>
+          {failed && <h6 className="mt-5 text-danger">Log in failed, try again.</h6>}
         </div>
         <div className="col-4"></div>
         </div>

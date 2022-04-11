@@ -14,7 +14,7 @@ const streams = require('./routes/streams');
 const genkey = require('./routes/genkey');
 const login = require('./routes/login');
 const logout = require('./routes/logout');
-const register = require('./routes/register');
+const signup = require('./routes/signup');
 const user = require('./routes/user');
 
 dotenv.config({ path: 'config.env' });
@@ -47,7 +47,7 @@ app.use('/', streams);
 app.use('/genkey', genkey);
 app.use('/login', login);
 app.use('/logout', logout);
-app.use('/register', register);
+app.use('/signup', signup);
 app.use('/user', user);
 
 passport.use(new LocalStrategy(

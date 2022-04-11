@@ -8,8 +8,10 @@ router.post('/', function(req, res) {
     const newUser = new User({ username: req.body.username,});
     newUser.password = newUser.generateHash(req.body.password);
     newUser.save(function (err) {
-      if (err) return handleError(err);
-      res.end();
+      if (err) 
+        return res.send('failure');
+      else
+        return res.send('success');
     });
 });
 
