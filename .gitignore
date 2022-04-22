@@ -9,13 +9,14 @@
 /coverage
 
 # production
-/build
+**/build
 
 # misc
 .DS_Store
 .env # production
 .env.development
 **/env.js
+**/media
 
 npm-debug.log*
 yarn-debug.log*

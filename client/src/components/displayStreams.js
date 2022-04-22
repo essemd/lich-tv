@@ -34,7 +34,6 @@ export default function DisplayStreams() {
     return (
         <div className="mt-4 container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
-		{console.log(process.env.REACT_APP_ENV)}
                 {streamIds && streams()} 
 	    </div>
         </div>
