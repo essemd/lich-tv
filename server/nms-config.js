@@ -1,18 +1,24 @@
+const path = require('path');
+const dotenv = require('dotenv');
+
+const configPath = path.resolve(__dirname, '../config.env');
+dotenv.config({ path: configPath });
+
 const config = {
     rtmp: {
-        port: 1935,
+        port: process.env.RTMP_PORT,
         chunk_size: 60000,
         gop_cache: true,
         ping: 30,
         ping_timeout: 60
     },
     http: {
-        port: 8888,
+        port: process.env.HTTP_PORT,
         mediaroot: './media',
         allow_origin: '*'
     },
     trans: {
-        ffmpeg: '/usr/bin/ffmpeg',
+        ffmpeg: '/opt/homebrew/bin/ffmpeg',
         tasks: [
             {
               app: 'live',

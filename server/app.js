@@ -17,14 +17,15 @@ const logout = require('./routes/logout');
 const signup = require('./routes/signup');
 const user = require('./routes/user');
 
-dotenv.config({ path: 'config.env' });
+const configPath = path.resolve(__dirname, '../config.env');
+dotenv.config({ path: configPath });
 
 const app = express();
 
 app.use(express.json());
 
 app.use(cors({
-    origin: "http://localhost:3000",
+    origin: `http://localhost:${process.env.REACT_DEV_PORT}`,
     credentials: true
 }));
 
@@ -69,7 +70,7 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-const port = process.env.PORT | 5000;
+const port = process.env.NODE_PORT;
 
 app.listen(port, () => {
     mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});

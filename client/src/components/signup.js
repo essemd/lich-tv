@@ -6,7 +6,7 @@ export default function Signup(props) {
     const [password, setPassword] = useState(); 
 
       const signup = () => {
-        axios.post("http://localhost:5000/signup", {
+        axios.post("http://localhost:5001/signup", {
           username,
           password
         }, {

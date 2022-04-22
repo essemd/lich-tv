@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function StreamLink(props) {
     const [imgSrc, setImg] = useState();
 
-    const imgUrl = 'http://localhost:5000/thumbnails/' + props.streamId + '.png';
+    const imgUrl = 'http://localhost:5001/thumbnails/' + props.streamId + '.png';
     const pathname = 'stream/' + props.streamId;
 
     const fetchImage = async () => {
