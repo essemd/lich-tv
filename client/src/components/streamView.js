@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import flvjs from 'flv.js';
+import env from '../env.js';
 
 export default function StreamView(props) {
     const { streamId } = useParams();
@@ -11,7 +12,7 @@ export default function StreamView(props) {
                 let flvPlayer = flvjs.createPlayer({
                     type: 'flv',
                     isLive: true,
-                    url: `ws://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_HTTP_PORT}/live/` + streamId + '.flv'
+                    url: `ws://${env.HOSTNAME}:${env.HTTP_PORT}/live/` + streamId + '.flv'
                 });
 
                 flvPlayer.attachMediaElement($video);

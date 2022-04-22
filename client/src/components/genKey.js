@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import env from '../env.js';
+
 export default function GenKey(props) {
     const [streamKey, setStreamKey] = useState();
 
     function handleSubmit(e) {
         e.preventDefault();
 
-        axios.get(`http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_NODE_PORT}`, { withCredentials: true})
+        axios.get(`http://${env.HOSTNAME}:${env.NODE_PORT}`, { withCredentials: true})
             .then((res) => {
                 //console.log(res);
                 setStreamKey(res.data.stream_key);

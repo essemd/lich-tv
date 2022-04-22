@@ -2,7 +2,7 @@ import React, { useState/*, useContext*/ } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'; 
 //import { myContext } from './context';
-
+import env from '../env.js';
 
 export default function Login(props) {
     const [username, setUsername] = useState(); 
@@ -12,7 +12,7 @@ export default function Login(props) {
     //const ctx = useContext(myContext);
 
   const login = () => {
-    axios.post(`http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_NODE_PORT}/login`, {
+    axios.post(`http://${env.HOSTNAME}:${env.NODE_PORT}/login`, {
       username,
       password
     }, {

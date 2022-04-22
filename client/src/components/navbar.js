@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { myContext } from './context';
 import axios from 'axios';
+import env from '../env.js';
 
 export default function Navbar(props) {
     const ctx = useContext(myContext);
@@ -8,7 +9,7 @@ export default function Navbar(props) {
     const logout = () => {
         console.log('logging out');
 
-        axios.get(`http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_NODE_PORT}/logout`, {
+        axios.get(`http://${env.HOSTNAME}:${env.NODE_PORT}/logout`, {
             withCredentials: true
         })
         .then((res) => {

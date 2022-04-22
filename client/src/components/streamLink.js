@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import env from '../env.js';
 
 export default function StreamLink(props) {
     const [imgSrc, setImg] = useState();
 
-    const imgUrl = `http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_NODE_PORT}/thumbnails/` + props.streamId + '.png';
+    const imgUrl = `http://${env.HOSTNAME}:${env.NODE_PORT}/thumbnails/` + props.streamId + '.png';
     const pathname = 'stream/' + props.streamId;
 
     const fetchImage = async () => {
@@ -14,7 +15,7 @@ export default function StreamLink(props) {
         const imageBlob = await res.blob();
         const imageObjectURL = URL.createObjectURL(imageBlob); 
 
-        if (imageObjectURL != prevImgSrc) {
+        if (imageObjectURL !== prevImgSrc) {
             URL.revokeObjectURL(prevImgSrc); // prevent memory leak
             setImg(imageObjectURL);
         }
