@@ -4,7 +4,7 @@ const cmd = config.trans.ffmpeg;
 const path = require('path');
 const dotenv = require('dotenv');
 
-const configPath = path.resolve(__dirname, '../../config.env');
+const configPath = path.resolve(__dirname, '../.env');
 dotenv.config({ path: configPath });
 
 const generateStreamThumbnail = (streamKey) => {
@@ -12,7 +12,7 @@ const generateStreamThumbnail = (streamKey) => {
     console.log(streamKey);
     const args = [
         '-y',
-        '-i', `http://localhost:${process.env.HTTP_PORT}/live/` + streamKey + '/index.m3u8',
+        '-i', `http://${process.env.HOSTNAME}:${process.env.HTTP_PORT}/live/` + streamKey + '/index.m3u8',
         '-ss', '00:00:01',
         '-vframes', '1',
         '-vf', 'scale=-2:300',

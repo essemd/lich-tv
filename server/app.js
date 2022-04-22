@@ -17,7 +17,8 @@ const logout = require('./routes/logout');
 const signup = require('./routes/signup');
 const user = require('./routes/user');
 
-const configPath = path.resolve(__dirname, '../config.env');
+
+const configPath = path.resolve(__dirname, '.env');
 dotenv.config({ path: configPath });
 
 const app = express();
@@ -25,7 +26,7 @@ const app = express();
 app.use(express.json());
 
 app.use(cors({
-    origin: `http://localhost:${process.env.REACT_DEV_PORT}`,
+    origin: `http://${process.env.HOSTNAME}:${process.env.REACT_DEV_PORT}`,
     credentials: true
 }));
 
