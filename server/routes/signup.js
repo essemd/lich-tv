@@ -3,7 +3,6 @@ const router = express.Router();
 const path = require('path');
 const User = require('../db/model');
 
-
 router.post('/', function(req, res) {
     const newUser = new User({ username: req.body.username });
     newUser.password = newUser.generateHash(req.body.password);
@@ -19,6 +18,5 @@ router.post('/', function(req, res) {
       }
     });
 });
-
 
 module.exports = router;

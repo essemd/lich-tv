@@ -4,9 +4,9 @@ const axios = require('axios');
 const path = require('path');
 const dotenv = require('dotenv');
 
-const configPath = path.resolve(__dirname, '../.env');
+const env = process.env.NODE_ENV || 'development';
+const configPath = path.resolve(__dirname, env === 'development' ? '../.env.development' : '../.env');
 dotenv.config({ path: configPath });
-
 
 router.get('/', function(req, res) {
     axios.get(`http://${process.env.HOSTNAME}:${process.env.HTTP_PORT}/api/streams`) // this mustn't be accessible from the outside, make sure it isnt
@@ -21,6 +21,5 @@ router.get('/', function(req, res) {
             res.send(err);
         });
 });
-
 
 module.exports = router;

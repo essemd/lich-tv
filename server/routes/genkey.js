@@ -5,7 +5,6 @@ const passport = require('passport');
 const shortid = require('shortid'); // for generating streaming keys
 const User = require('../db/model');
 
-
 router.get('/', function(req, res) {
     if (req.user) {
         User.findOneAndUpdate(
@@ -28,6 +27,5 @@ router.get('/', function(req, res) {
         res.send('req.user is undefined');
     }
 });
-
 
 module.exports = router;

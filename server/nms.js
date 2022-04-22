@@ -6,7 +6,6 @@ const config = require('./nms-config');
 const User = require('./db/model');
 const generateStreamThumbnail = require('./helpers/generate-stream-thumbnail');
 
-
 let nms = new NodeMediaServer(config);
 let task = null; // i dont think this is the idiomatic way to declare uninitialized globals in javascript lel
 
@@ -44,6 +43,5 @@ nms.on('donePublish', (id, args) => {
 
 mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
-
 
 nms.run();

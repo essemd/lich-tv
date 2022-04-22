@@ -17,8 +17,8 @@ const logout = require('./routes/logout');
 const signup = require('./routes/signup');
 const user = require('./routes/user');
 
-
-const configPath = path.resolve(__dirname, '.env');
+const env = process.env.NODE_ENV || 'development';
+const configPath = path.resolve(__dirname, env === 'development' ? '.env.development' : '.env');
 dotenv.config({ path: configPath });
 
 const app = express();

@@ -1,10 +1,10 @@
 const { spawn } = require('child_process');
 const config = require('../nms-config');
-const cmd = config.trans.ffmpeg;
 const path = require('path');
 const dotenv = require('dotenv');
 
-const configPath = path.resolve(__dirname, '../.env');
+const env = process.env.NODE_ENV || 'development';
+const configPath = path.resolve(__dirname, env === 'development' ? '../.env.development' : '../.env');
 dotenv.config({ path: configPath });
 
 const generateStreamThumbnail = (streamKey) => {
@@ -19,7 +19,7 @@ const generateStreamThumbnail = (streamKey) => {
         './thumbnails/' + streamKey + '.png',
     ];
 
-    const subprocess = spawn(cmd, args, {
+    const subprocess = spawn(config.trans.ffmpeg, args, {
         detached: true
     });
 
@@ -35,6 +35,5 @@ const generateStreamThumbnail = (streamKey) => {
         console.log(data.toString());
     });
 };
-
 
 module.exports = generateStreamThumbnail;

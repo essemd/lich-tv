@@ -1,7 +1,8 @@
 const path = require('path');
 const dotenv = require('dotenv');
 
-const configPath = path.resolve(__dirname, '.env');
+const env = process.env.NODE_ENV || 'development';
+const configPath = path.resolve(__dirname, env === 'development' ? '.env.development' : '.env');
 dotenv.config({ path: configPath });
 
 const config = {

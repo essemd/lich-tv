@@ -8,5 +8,4 @@ router.post('/', passport.authenticate('local', {session: true}),
         res.send('success');
 });
 
-
 module.exports = router;
