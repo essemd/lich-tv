@@ -7,7 +7,7 @@ export default function Signup(props) {
     const [failed, setFailed] = useState(false);
 
       const signup = () => {
-        axios.post('http://localhost:5001/signup', {
+        axios.post(`http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_NODE_PORT}/signup`, {
           username,
           password
         }, {
@@ -15,11 +15,14 @@ export default function Signup(props) {
         })
         .then((res) => {
           if (res.data === 'success') {
+	      console.log('success');
               window.location.href = '/login'
           } else if (res.data === 'exists') {
+	      console.log('exists');
               setFailed(true); 
           } else {
-              window.alert('server error'); 
+	      console.log('server error');
+              window.alert('server error'); // temp 
           }
         })
         .catch((err) => {

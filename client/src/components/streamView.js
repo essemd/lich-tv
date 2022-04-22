@@ -11,7 +11,7 @@ export default function StreamView(props) {
                 let flvPlayer = flvjs.createPlayer({
                     type: 'flv',
                     isLive: true,
-                    url: 'ws://localhost:8888/live/' + streamId + '.flv'
+                    url: `ws://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_HTTP_PORT}/live/` + streamId + '.flv'
                 });
 
                 flvPlayer.attachMediaElement($video);

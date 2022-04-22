@@ -9,7 +9,7 @@ export default function DisplayStreams() {
 
     useEffect(() => {
         async function fetchStreamIds() {
-            const response = await fetch('http://localhost:5001/'); 
+            const response = await fetch(`http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_NODE_PORT}/`); 
 
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;
@@ -40,7 +40,7 @@ export default function DisplayStreams() {
         <div className="mt-4 container">
             <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3">
                 {streamIds && streams()} 
-            </div>
+	    </div>
         </div>
         /*<Container>
             <Row>

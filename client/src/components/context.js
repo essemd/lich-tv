@@ -6,7 +6,7 @@ export default function Context(props) {
   const [user,setUser] = useState();
 
   useEffect(() => {
-    axios.get("http://localhost:5001/user", { withCredentials: true }).then((res) => {
+    axios.get(`http://${process.env.REACT_APP_HOSTNAME}:${process.env.REACT_APP_NODE_PORT}/user`, { withCredentials: true }).then((res) => {
       setUser(res.data);
     });
   }, []);
