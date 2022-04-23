@@ -38,7 +38,7 @@ nms.on('prePublish', (id, StreamPath, args) => {
 
 nms.on('donePublish', (id, args) => {
     console.log('terminate cron job');
-    task.stop(); // this will be called an extra time on an already stopped task, not sure of a better way to do it atm 
+    if (task) task.stop();
 });
 
 mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
