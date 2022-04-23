@@ -71,7 +71,7 @@ passport.deserializeUser(function(user, done) {
     done(null, user);
 });
 
-const port = process.env.NODE_PORT;
+const port = process.env.PORT || process.env.NODE_PORT;
 
 app.listen(port, () => {
     mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
