@@ -41,7 +41,9 @@ nms.on('donePublish', (id, args) => {
     if (task) task.stop();
 });
 
-mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
-mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+//mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
+//mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
 
-nms.run();
+//nms.run();
+
+module.exports = nms;

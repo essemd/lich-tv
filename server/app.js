@@ -9,6 +9,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 const dotenv = require('dotenv');
 const User = require('./db/model');
+const nms = require('./nms');
 
 const streams = require('./routes/streams');
 const genkey = require('./routes/genkey');
@@ -76,6 +77,8 @@ const port = process.env.PORT || process.env.NODE_PORT;
 app.listen(port, () => {
     mongoose.connect(process.env.ATLAS_URI, {useNewUrlParser: true, useUnifiedTopology: true});
     mongoose.connection.on('error', console.error.bind(console, 'MongoDB connection error:'));
+
+    nms.run();
 
     console.log(`Server up and running on port ${port}...`);
 });
