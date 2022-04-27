@@ -1,10 +1,16 @@
 const NodeMediaServer = require('node-media-server');
 const mongoose = require('mongoose');
 const cron = require('node-cron');
-require('dotenv').config({ path: '.env' });
 const config = require('./nms-config');
 const User = require('./db/model');
 const generateStreamThumbnail = require('./helpers/generate-stream-thumbnail');
+const path = require('path');
+const dotenv = require('dotenv');
+
+const env = process.env.NODE_ENV || 'development';
+const configPath = path.resolve(__dirname, env == 'development' ? '.env.development' : '.env');
+
+dotenv.config({ path: configPath });
 
 let nms = new NodeMediaServer(config);
 let task = null; // i dont think this is the idiomatic way to declare uninitialized globals in javascript lel

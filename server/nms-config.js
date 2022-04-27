@@ -1,5 +1,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
+const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 
 const env = process.env.NODE_ENV || 'development';
 const configPath = path.resolve(__dirname, env === 'development' ? '.env.development' : '.env');
@@ -19,7 +20,7 @@ const config = {
         allow_origin: '*'
     },
     trans: {
-        ffmpeg: process.env.FFMPEG_DIR,
+        ffmpeg: ffmpegPath,
         tasks: [
             {
               app: 'live',
