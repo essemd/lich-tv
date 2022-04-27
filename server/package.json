@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node app.js",
     "dev": "export NODE_ENV=development && node app.js",
-    "build": "export NODE_ENV=production",
+    "build": "export NODE_ENV=production && node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
