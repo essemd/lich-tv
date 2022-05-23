@@ -7,7 +7,7 @@ export default function DisplayStreams() {
 
     useEffect(() => {
         async function fetchStreamIds() {
-            const response = await fetch(`http://${env.HOSTNAME}:${env.NODE_PORT}/`); 
+            const response = await fetch(`https://${env.HOSTNAME}/node`); 
 
             if (!response.ok) {
                 const message = `An error occurred: ${response.statusText}`;

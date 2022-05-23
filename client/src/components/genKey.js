@@ -8,7 +8,7 @@ export default function GenKey(props) {
     function handleSubmit(e) {
         e.preventDefault();
 
-        axios.get(`http://${env.HOSTNAME}:${env.NODE_PORT}/genkey`, { withCredentials: true})
+        axios.get(`https://${env.HOSTNAME}/node/genkey`, { withCredentials: true})
             .then((res) => {
                 setStreamKey(res.data.stream_key);
             }).catch((err) => {

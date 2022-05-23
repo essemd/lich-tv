@@ -12,7 +12,7 @@ export default function Login(props) {
     //const ctx = useContext(myContext);
 
   const login = () => {
-    axios.post(`http://${env.HOSTNAME}:${env.NODE_PORT}/login`, {
+    axios.post(`https://${env.HOSTNAME}/node/login`, {
       username,
       password
     }, {

@@ -5,7 +5,7 @@ import env from '../env.js';
 export default function StreamLink(props) {
     const [imgSrc, setImg] = useState();
 
-    const imgUrl = `http://${env.HOSTNAME}:${env.NODE_PORT}/thumbnails/` + props.streamId + '.png';
+    const imgUrl = `https://${env.HOSTNAME}/node/thumbnails/` + props.streamId + '.png';
     const pathname = 'stream/' + props.streamId;
 
     const fetchImage = async () => {

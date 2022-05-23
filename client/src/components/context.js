@@ -7,7 +7,7 @@ export default function Context(props) {
   const [user,setUser] = useState();
 
   useEffect(() => {
-    axios.get(`http://${env.HOSTNAME}:${env.NODE_PORT}/user`, { withCredentials: true }).then((res) => {
+    axios.get(`https://${env.HOSTNAME}/node/user`, { withCredentials: true }).then((res) => {
       setUser(res.data);
     });
   }, []);
