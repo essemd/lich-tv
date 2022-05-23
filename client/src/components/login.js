@@ -33,7 +33,7 @@ export default function Login(props) {
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4">
-          <h2 className="mb-4">Login</h2>
+          <h2 className="mb-4">Loginhabajaba</h2>
           <label className="mr-2" htmlFor="username">Username</label>
           <input className="mb-3 form-control" type="text" onChange={e => setUsername(e.target.value)}/>
           <label className="mr-2" htmlFor="password">Password</label>
