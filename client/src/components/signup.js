@@ -36,7 +36,7 @@ export default function Signup(props) {
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4">
-          <h2 className="mb-4">Signupdontlineup</h2>
+          <h2 className="mb-4">Signup</h2>
           <label className="mr-2" htmlFor="username">Username</label>
           <input className="mb-3 form-control" type="text" onChange={e => setUsername(e.target.value)}/>
           <label className="mr-2" htmlFor="password">Password</label>
