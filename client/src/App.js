@@ -7,7 +7,7 @@ import Login from "./components/login";
 import Signup from "./components/signup";
 import GenKey from "./components/genKey";
 import StreamView from "./components/streamView";
-
+import Footer from "./components/footer";
 
 export default function App() {
     return (
@@ -20,6 +20,7 @@ export default function App() {
                 <Route path="/genkey" element={<GenKey />} />
                 <Route path="/stream/:streamId" element={<StreamView />} />
             </Routes>
+			<Footer />
         </div>
     );
 }

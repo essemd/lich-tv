@@ -29,7 +29,7 @@ export default function Login(props) {
 
     /* why did the passport session not work when this was a form? */
     return (
-    <div className="mt-4 container-fluid">
+    <div className="content mt-4 container-fluid">
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4">
