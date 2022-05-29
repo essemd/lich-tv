@@ -1,10 +1,17 @@
+* {
+	color: #ccc !important;
+}
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+						url(../public/bg_grayscale.jpg);
+	background-size: cover;
+  	margin: 0;
+  	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    	sans-serif;
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
 }
 
 code {
@@ -13,7 +20,6 @@ code {
 }
 
 footer {
-	background-color: lightgray;
 	height: 50px;
 	text-align: center;
 }
@@ -28,3 +34,6 @@ footer p {
 	min-height: calc(100vh - 50px);	
 }
 
+.transparent {
+	background-color: transparent;
+}

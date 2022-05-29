@@ -21,9 +21,9 @@ export default function Navbar(props) {
     };
 
     return (
-        <nav className="navbar navbar-light bg-dark">
-            <div className="container-fluid">
-                <a className="navbar-brand mb-0 h1 text-light" href="/">lich.stream</a>
+        <nav className="navbar bg-dark">
+            <div className="container">
+                <a className="navbar-brand mb-0 h1 text-light" href="/">lich</a>
                 <ul className="flex-row navbar-nav text-light justify-content-end">
                     {ctx ? (
                     <li className="nav-item m-1"><a className="text-reset text-decoration-none" href="#" onClick={logout}>Logout</a></li>
