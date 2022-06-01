@@ -23,10 +23,14 @@ export default function StreamView(props) {
     }
    
     return (
-        <video 
-            controls
-            autoplay
-            ref={initFlv}
-        />
+        //<div className="content container-fluid mt-4">
+	    <div className="content embed-responsive embed-responsive-16by10">
+		<video 
+		    controls
+  		    autoplay
+		    ref={initFlv}
+		/>
+	    </div>
+	//</div>
     );
 }

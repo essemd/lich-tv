@@ -32,7 +32,7 @@ export default function Signup(props) {
       };
 
     return (
-    <div className="content mt-4 container-fluid">
+    <div className="content container-fluid mt-4">
       <div className="row">
         <div className="col-4"></div>
         <div className="col-4">
