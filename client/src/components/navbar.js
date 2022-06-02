@@ -9,7 +9,7 @@ export default function Navbar(props) {
     const logout = () => {
         console.log('logging out');
 
-        axios.get(`https://${env.HOSTNAME}/node/logout`, {
+        axios.get(`${env.PROTOCOL}://${env.HOSTNAME}/node/logout`, {
             withCredentials: true
         })
         .then((res) => {

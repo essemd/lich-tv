@@ -1,5 +1,5 @@
 const express = require('express');
-const cors = require('cors');
+//const cors = require('cors');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser'); 
@@ -18,18 +18,20 @@ const logout = require('./routes/logout');
 const signup = require('./routes/signup');
 const user = require('./routes/user');
 
-const env = process.env.NODE_ENV || 'development';
-const configPath = path.resolve(__dirname, env === 'development' ? '.env.development' : '.env');
+//const env = process.env.NODE_ENV || 'development';
+//const configPath = path.resolve(__dirname, env === 'development' ? '.env.development' : '.env');
+const configPath = path.resolve(__dirname, '.env');
 dotenv.config({ path: configPath });
 
 const app = express();
 
 app.use(express.json());
 
-app.use(cors({
+/*app.use(cors({
     origin: `http://${process.env.HOSTNAME}:${process.env.REACT_DEV_PORT}`,
+	//origin: 'http://localhost:3000',
     credentials: true
-}));
+}));*/
 
 app.use('/thumbnails', express.static('thumbnails'));
 

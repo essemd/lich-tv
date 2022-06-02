@@ -3,8 +3,9 @@ const config = require('../nms-config');
 const path = require('path');
 const dotenv = require('dotenv');
 
-const env = process.env.NODE_ENV || 'development';
-const configPath = path.resolve(__dirname, env === 'development' ? '../.env.development' : '../.env');
+//const env = process.env.NODE_ENV || 'development';
+//const configPath = path.resolve(__dirname, env === 'development' ? '../.env.development' : '../.env');
+const configPath = path.resolve(__dirname, '../.env');
 dotenv.config({ path: configPath });
 
 const generateStreamThumbnail = (streamKey) => {

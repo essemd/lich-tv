@@ -8,7 +8,7 @@ export default function Signup(props) {
     const [failed, setFailed] = useState(false);
 
       const signup = () => {
-        axios.post(`https://${env.HOSTNAME}/node/signup`, {
+        axios.post(`${env.PROTOCOL}://${env.HOSTNAME}/node/signup`, {
           username,
           password
         }, {

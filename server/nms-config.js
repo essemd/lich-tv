@@ -3,7 +3,8 @@ const dotenv = require('dotenv');
 const ffmpegPath = require("@ffmpeg-installer/ffmpeg").path;
 
 const env = process.env.NODE_ENV || 'development';
-const configPath = path.resolve(__dirname, env === 'development' ? '.env.development' : '.env');
+//const configPath = path.resolve(__dirname, env === 'development' ? '.env.development' : '.env');
+const configPath = path.resolve(__dirname, '.env');
 dotenv.config({ path: configPath });
 
 const config = {
@@ -19,11 +20,6 @@ const config = {
         mediaroot: './media',
         allow_origin: '*'
     },
-    https: {
-	port: 8443,
-	key: './privatekey.pem',
-	cert: './certificate.pem'
-    },
     trans: {
         ffmpeg: ffmpegPath,
         tasks: [
@@ -35,5 +31,13 @@ const config = {
         ]
     }
 };
+
+if (env === 'production') {
+	config['https'] = {
+		port: 8443,
+		key: './privatekey.pem',
+		cert: './certificate.pem'
+    };
+}
 
 module.exports = config;
