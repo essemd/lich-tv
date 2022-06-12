@@ -25,7 +25,7 @@ export default function GenKey(props) {
                         <div className="d-flex justify-content-center">
                             <button className="mb-4 btn btn-warning" type="submit">Generate Key</button>
                         </div>
-                        {streamKey && <h5 className="text-center">Your generated stream key (save it somewhere safe):</h5>}
+                        {streamKey && <h5 className="text-center">To stream, use streaming software such as OBS, and point it to the server at rtmp://lich.stream/live, using the generated stream key below:</h5>}
                         <p className="text-center">{streamKey}</p>
                     </div>
                     <div className="col-4"></div>
