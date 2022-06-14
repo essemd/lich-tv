@@ -1,51 +1,51 @@
 import React, { useState } from 'react';
-import axios from 'axios'; 
-import env from '../env.js';
+import axios from 'axios';
+import env from '../env';
 
 export default function Signup(props) {
-    const [username, setUsername] = useState(); 
-    const [password, setPassword] = useState(); 
-    const [failed, setFailed] = useState(false);
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+  const [failed, setFailed] = useState(false);
 
-      const signup = () => {
-        axios.post(`${env.PROTOCOL}://${env.HOSTNAME}/node/signup`, {
-          username,
-          password
-        }, {
-          withCredentials: true
-        })
-        .then((res) => {
-          if (res.data === 'success') {
+  const signup = () => {
+    axios.post(`${env.PROTOCOL}://${env.HOSTNAME}/node/signup`, {
+      username,
+      password,
+    }, {
+      withCredentials: true,
+    })
+      .then((res) => {
+        if (res.data === 'success') {
 	      console.log('success');
-              window.location.href = '/login'
-          } else if (res.data === 'exists') {
+          window.location.href = '/login';
+        } else if (res.data === 'exists') {
 	      console.log('exists');
-              setFailed(true); 
-          } else {
+          setFailed(true);
+        } else {
 	      console.log('server error');
-              window.alert('server error'); // temp 
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-      };
+          window.alert('server error'); // temp
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
-    return (
+  return (
     <div className="content container-fluid mt-4">
       <div className="row">
-        <div className="col-4"></div>
+        <div className="col-4" />
         <div className="col-4">
           <h2 className="mb-4">Signup</h2>
           <label className="mr-2" htmlFor="username">Username</label>
-          <input className="mb-3 form-control" type="text" onChange={e => setUsername(e.target.value)}/>
+          <input className="mb-3 form-control" type="text" onChange={(e) => setUsername(e.target.value)} />
           <label className="mr-2" htmlFor="password">Password</label>
-          <input className="mb-3 form-control" type="text" onChange={e => setPassword(e.target.value)} />
+          <input className="mb-3 form-control" type="text" onChange={(e) => setPassword(e.target.value)} />
           <button className="mt-3 btn btn-primary" onClick={signup}>Signup</button>
           {failed && <h6 className="mt-5 text-danger">Username already exists.</h6>}
         </div>
-        <div className="col-4"></div>
-        </div>
+        <div className="col-4" />
+      </div>
     </div>
-    );
+  );
 }

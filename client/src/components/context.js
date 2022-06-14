@@ -1,10 +1,10 @@
-import react, { createContext, useEffect, useState } from 'react';
+import React, { createContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import env from '../env.js';
+import env from '../env';
 
 export const myContext = createContext({});
 export default function Context(props) {
-  const [user,setUser] = useState();
+  const [user, setUser] = useState();
 
   useEffect(() => {
     axios.get(`${env.PROTOCOL}://${env.HOSTNAME}/node/user`, { withCredentials: true }).then((res) => {
@@ -13,6 +13,6 @@ export default function Context(props) {
   }, []);
 
   return (
-    <myContext.Provider value={user}>{props.children}</myContext.Provider> // removed ! after user
-    );
+                <myContext.Provider value={user}>{props.children}</myContext.Provider> // removed ! after user
+  );
 }
