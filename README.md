@@ -29,7 +29,7 @@ Once installed, you'll need to create two configuration files.
 Place the following into `lich-tv/server/.env`, appending your MongoDB database URI to the first field:
 
 ```
-ATLAS_URI=
+ATLAS_URI=<mongodb_uri>
 HOSTNAME=localhost
 NODE_PORT=5001
 HTTP_PORT=8888
