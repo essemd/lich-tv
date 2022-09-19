@@ -35,7 +35,7 @@ NODE_PORT=5001
 HTTP_PORT=8888
 ```
 
-Place the following into `lich-tv/server/env.js`:
+Place the following into `lich-tv/client/src/env.js`:
 
 ```
 const dev = {
@@ -45,7 +45,7 @@ const dev = {
 
 const prod = {
     PROTOCOL: 'https',
-    HOSTNAME: '1.2.3.4'
+    HOSTNAME: '<prod_url>'
 }
 
 module.exports = process.env.REACT_APP_ENV === 'development' ? dev : prod;
