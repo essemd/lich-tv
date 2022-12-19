@@ -2,14 +2,6 @@
 
 Lich.tv is a live-streaming platform built with the MERN stack.
 
-## Demo
-
-A demo is up and running at https://lich.stream. 
-    
-To start streaming visit the above URL and sign up for an account. Then log in with the same credentials and click the 'Generate Key' button. At that point you will receive further instructions.  
-    
-Once there is at least one incoming stream, stream thumbnails will begin to generate on the main page, which can be clicked to view the actual stream content (similar to twitch.tv).
-
 ## Local deployment
 
 The first things you need to do are cloning this repository and installing its dependencies:
